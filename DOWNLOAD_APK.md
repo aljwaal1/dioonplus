@@ -1,7 +1,9 @@
 # رابط تحميل التطبيق
 
-بعد نجاح البناء على GitHub سيظهر ملف APK هنا:
+بعد نجاح البناء، حمل ملف APK مباشرة من هذا الرابط:
 
-`apk/debt-advanced.apk`
+https://github.com/aljwaal1/dioonplus/raw/main/apk/debt-advanced.apk
 
-رابط التحميل المباشر سيُكتب تلقائيًا داخل هذا الملف بعد البناء.
+اسم الملف:
+
+apk/debt-advanced.apk
