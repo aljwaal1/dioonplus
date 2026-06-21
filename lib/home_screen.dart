@@ -192,9 +192,46 @@ class _DebtHomeScreenState extends State<DebtHomeScreen> {
   }
 
   Future<void> _deleteEntry(DebtEntry entry) async {
-    SoundService.instance.remove();
+    final confirmed = await _confirmDeleteEntry(entry);
+    if (!confirmed) return;
+
+    await SoundService.instance.remove();
     setState(() => _entries.removeWhere((item) => item.id == entry.id));
     await _saveEntries();
+  }
+
+  Future<bool> _confirmDeleteEntry(DebtEntry entry) async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: AppColors.surface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text(
+          'تأكيد الحذف',
+          textAlign: TextAlign.right,
+          style: TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.w900),
+        ),
+        content: Text(
+          'هل أنت متأكد من حذف عملية ${entry.person} بمبلغ ${formatMoney(entry.amount)}؟',
+          textAlign: TextAlign.right,
+          style: const TextStyle(color: AppColors.textSecondary, height: 1.5),
+        ),
+        actionsAlignment: MainAxisAlignment.start,
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: const Text('إلغاء'),
+          ),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            style: FilledButton.styleFrom(backgroundColor: AppColors.danger),
+            icon: const Icon(Icons.delete_outline_rounded, size: 18),
+            label: const Text('حذف'),
+          ),
+        ],
+      ),
+    );
+    return result ?? false;
   }
 
   void _openPerson(PersonSummary person) {

@@ -22,7 +22,7 @@ class SoundService {
     final prefs = await SharedPreferences.getInstance();
     _enabled = prefs.getBool(_prefsKey) ?? true;
     await _player.setReleaseMode(ReleaseMode.stop);
-    await _player.setVolume(0.55);
+    await _player.setVolume(0.16);
     _ready = true;
   }
 
@@ -32,7 +32,7 @@ class SoundService {
     await prefs.setBool(_prefsKey, value);
   }
 
-  Future<void> _play(String asset, {double volume = 0.55}) async {
+  Future<void> _play(String asset, {double volume = 0.16}) async {
     if (!_enabled) return;
     try {
       await _player.stop();
@@ -45,16 +45,16 @@ class SoundService {
 
   Future<void> success() async {
     HapticFeedback.lightImpact();
-    await _play('success_chime.wav', volume: 0.6);
+    await _play('success_chime.wav', volume: 0.14);
   }
 
   Future<void> tap() async {
     HapticFeedback.selectionClick();
-    await _play('soft_tap.wav', volume: 0.4);
+    await _play('soft_tap.wav', volume: 0.08);
   }
 
   Future<void> remove() async {
-    HapticFeedback.mediumImpact();
-    await _play('delete_swipe.wav', volume: 0.5);
+    HapticFeedback.lightImpact();
+    await _play('delete_swipe.wav', volume: 0.12);
   }
 }

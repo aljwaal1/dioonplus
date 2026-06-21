@@ -242,10 +242,7 @@ class _LedgerTile extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: TextButton.icon(
-              onPressed: () {
-                SoundService.instance.remove();
-                onDelete();
-              },
+              onPressed: onDelete,
               style: TextButton.styleFrom(foregroundColor: AppColors.danger),
               icon: const Icon(Icons.delete_outline_rounded, size: 17),
               label: const Text('حذف'),
