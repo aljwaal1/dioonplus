@@ -112,7 +112,7 @@ class _PersonHeader extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
       child: Container(
-        decoration: const BoxDecoration(gradient: AppGradients.header, boxShadow: AppShadows.header),
+        decoration: BoxDecoration(gradient: AppGradients.header, boxShadow: AppShadows.header),
         child: SafeArea(
           bottom: false,
           child: Padding(

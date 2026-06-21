@@ -40,7 +40,7 @@ class _GoldButtonState extends State<GoldButton> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: disabled || _pressed ? [] : AppShadows.gold,
       ),
-      transform: _pressed ? (Matrix4.identity()..scale(0.98)) : Matrix4.identity(),
+      transform: _pressed ? (Matrix4.identity()..scaleByDouble(0.98, 0.98, 1.0, 1.0)) : Matrix4.identity(),
       transformAlignment: Alignment.center,
       child: Row(
         mainAxisSize: widget.expand ? MainAxisSize.max : MainAxisSize.min,
