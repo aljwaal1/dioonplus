@@ -1,9 +1,5 @@
-# رابط تحميل التطبيق
+# تحميل التطبيق
 
-بعد نجاح البناء، حمل ملف APK مباشرة من هذا الرابط:
+آخر نسخة APK مباشرة:
 
 https://github.com/aljwaal1/dioonplus/raw/main/apk/debt-advanced.apk
-
-اسم الملف:
-
-apk/debt-advanced.apk
