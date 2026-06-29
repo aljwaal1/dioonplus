@@ -1,8 +1,8 @@
 name: debt_advanced
-description: Arabic offline advanced ledger with a premium professional design.
+description: Arabic offline advanced debt ledger with a premium professional design.
 publish_to: "none"
 
-version: 4.0.0+4
+version: 1.1.0+2
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
